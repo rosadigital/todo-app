@@ -1,0 +1,365 @@
+/*
+Developed by: Kazi Islam
+ID: 301163646
+September 29, 2024
+*/
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+:root {
+  --header-text-1-font-family: "Ubuntu", "Roboto Slab", serif;
+  --body-text-font-family: "Roboto Slab";
+  --nav-bar-font-family: "Merriweather";
+  --bg-purple: #500156;
+  --bg-blue: #020060;
+  --bg-black: #000;
+  --bg-project: #f6fff8;
+  --bg-project-alternate: #f6faff;
+}
+body {
+  font-family: var(--body-text-font-family);
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background: var(--bg-purple);
+  color: white;
+}
+.container {
+  overflow: hidden;
+  background: #fff;
+  padding: 0px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.header-text-1 {
+  font-family: var(--header-text-1-font-family);
+  font-weight: 700;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  max-width: 1220px;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 64px;
+  height: auto;
+  margin: 15px;
+  outline: 2px #fff solid;
+  border-radius: 50px;
+}
+
+.banner-text h1 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.occupation {
+  margin: 0;
+  font-size: 0.8em;
+  font-family: "Roboto Slab";
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  background: var(--bg-black);
+}
+
+nav ul li {
+  margin: 0 10px;
+  font-family: var(--nav-bar-font-family);
+  font-weight: 100;
+  font-size: 0.8rem;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+}
+
+nav ul li a:hover {
+  background: #555;
+  color: white;
+}
+
+footer {
+  background: var(--bg-blue);
+  color: rgb(114, 115, 157);
+  text-align: center;
+  padding: 60px 0;
+  bottom: 0;
+  width: 100%;
+}
+footer p {
+  font-size: 0.95rem !important;
+  color: #b7b7b8;
+}
+footer a {
+  color: #b7b7b8;
+}
+footer a:hover {
+  color: #b7b7b8;
+  text-decoration: underline;
+}
+.bottom-nav {
+  color: #e1008b;
+  font-weight: 200;
+  font-size: 0.85rem;
+}
+.bottom-nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+.bottom-nav ul li {
+  padding-right: 20px;
+}
+.bottom-nav a,
+a:hover {
+  color: #e1008b;
+}
+.bottom-nav a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2 {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+section {
+  text-align: left;
+  padding: 70px;
+}
+.strong-text {
+  font-family: "Roboto Slab";
+  font-weight: 400;
+}
+.elevator-pitch {
+  font-family: "Roboto Slab";
+  font-size: 2rem;
+  font-weight: 100;
+}
+.highlight {
+  padding: 0px 10px 0px 10px;
+  font-weight: 400;
+}
+.highlight-purple {
+  background-color: var(--bg-purple);
+  color: #fff;
+}
+.highlight-yellow {
+  background-color: #ffe700;
+}
+.highlight-black {
+  background-color: #000;
+  color: #fff;
+}
+.kazi-img {
+  width: 70%;
+  height: auto;
+}
+p {
+  font-family: var(--body-text-font-family);
+  font-weight: 200;
+  font-size: 1.25rem;
+}
+.technology-icons img {
+  width: auto;
+  height: 180px;
+  padding: 30px;
+}
+.section-gap {
+  margin-bottom: 200px;
+}
+.section-blue {
+  background-color: var(--bg-blue);
+  color: white;
+}
+.section-purple {
+  background-color: var(--bg-purple);
+  color: white;
+}
+
+.section-gray {
+  background-color: #ebebeb;
+}
+
+.blog {
+  font-family: "Roboto Slab", "Ubuntu", "Merriweather", Arial, serif;
+}
+.blog-topic {
+  line-height: 1;
+}
+
+.blog p {
+  font-size: 0.99rem;
+  letter-spacing: 1px;
+  line-height: 2;
+  font-weight: 300;
+}
+.blog ul {
+  list-style: none;
+  padding: 0;
+}
+.blog ul > li {
+  font-size: 0.85rem;
+  letter-spacing: normal;
+  line-height: 1;
+  margin-bottom: 2px;
+  font-weight: 300;
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+.blog-gif-1 {
+  width: 250px;
+}
+
+.hr-gray {
+  border-bottom: 1px solid #838383;
+}
+
+.projects {
+  margin: 30px 70px 30px 70px;
+  border-radius: 10px;
+}
+.projects p {
+  font-size: 0.95rem;
+}
+.project {
+  padding: 10px;
+  background-color: var(--bg-project);
+}
+.project-alternate {
+  padding: 10px;
+  background-color: var(--bg-project-alternate);
+}
+.project-image {
+  width: 99%;
+  object-fit: cover;
+}
+
+.project-details {
+  padding: 20px;
+  width: 60%;
+  text-align: left;
+}
+.float-button {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  background-color: #e700eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.float-button:hover {
+  background-color: #c800ba;
+}
+
+/*#region skill-bar */
+.skill-bar label {
+  margin-bottom: 0px;
+}
+.skill-section ul {
+  list-style: none;
+  padding: 0;
+}
+.skill-section ul > li {
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+}
+.skill-text {
+  display: flex;
+  justify-content: space-between;
+  color: #828282;
+}
+
+.outer-line {
+  border: 1px solid #8300a3;
+  padding: 2px;
+  border-radius: 10px;
+}
+.inner-bar {
+  height: 4px;
+  background-color: rgb(215, 0, 211);
+  border-radius: 10px;
+}
+/*#endregion */
+#resume p {
+  font-size: 0.95rem;
+}
+.resume-content {
+  display: flex;
+}
+.content-left {
+  width: 25%;
+}
+.divider {
+  width: 1%;
+  padding: 0px 30px;
+}
+.content-middle {
+  width: 50%;
+  padding-right: 50px;
+}
+.content-right {
+  width: 24%;
+  padding-left: 10px;
+  margin-top: 30px;
+}
+.job-location {
+  color: #bbbbbb;
+  font-size: 0.8rem;
+}
+
+.resume-dot {
+  width: 15px;
+  height: 15px;
+  border: 1px solid rgb(91, 91, 91);
+  border-radius: 50px;
+  margin-left: -37px;
+  margin-bottom: -18px;
+  background-color: white;
+}
+.success-message {
+  color: green;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
