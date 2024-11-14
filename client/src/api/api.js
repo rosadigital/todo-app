@@ -17,6 +17,7 @@ export const setAuthToken = (token) => {
 
 // Auth endpoints
 export const login = (credentials) => api.post("/auth/login", credentials);
+export const logOut = () => api.post("/auth/logout");
 export const register = (userData) => api.post("/auth/register", userData);
 export const updateUser = (id, userData) => api.put(`/auth/${id}`, userData);
 

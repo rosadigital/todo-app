@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { getTodos, addTodo, updateTodo, deleteTodo } from "../api/api";
+import { useNavigate } from "react-router-dom";
+import { getTodos, addTodo, updateTodo, deleteTodo, logOut } from "../api/api";
 import AppPic from "../assets/todo-app-logo.png";
 import Footer from "../components/Footer";
 
@@ -13,17 +14,22 @@ const TodoPage = () => {
   const [isEditMode, setIsEditMode] = useState(false);
   const [editTodoId, setEditTodoId] = useState(null);
   const [userName, setUserName] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (storedUser) {
-      setUserName(storedUser);
-    }
+    const storedUser = localStorage.getItem("user");
+    //if (storedUser) {
+    setUserName(storedUser._id);
+    //}
   }, []);
 
   const fetchTodos = async () => {
     const response = await getTodos();
     setTodos(response.data);
+  };
+  const handleLogout = () => {
+    logOut();
+    navigate("/login");
   };
 
   const handleAddOrUpdateTodo = async () => {
@@ -71,7 +77,8 @@ const TodoPage = () => {
               <span style={{ marginLeft: 20 }}>Welcome, {userName}</span>
             </div>
             <div className="col-8 offset-1 text-end">
-              <a href="/:id">Profile</a> | <a href="/logout">Logout</a>
+              <a href="/:id">Profile</a> |{" "}
+              <button onClick={handleLogout}>Logout</button>
             </div>
           </div>
           <div className="row">
