@@ -5,53 +5,6 @@ import Footer from "../components/Footer";
 import { register } from "../api/api";
 
 const RegisterForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    phone: "",
-  });
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [successMessage, setSuccessMessage] = useState(""); // For success message
-  const [errorMessage, setErrorMessage] = useState(""); // For error message
-  const navigate = useNavigate(); // Use navigate for redirection
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleConfirmPasswordChange = (e) => {
-    setConfirmPassword(e.target.value);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // Check if password matches confirm password
-    if (formData.password !== confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
-
-    try {
-      const response = await register(formData);
-      console.log("User registered:", response.data);
-      setErrorMessage("");
-      setSuccessMessage("Registration successful! Redirecting to login...");
-
-      setTimeout(() => {
-        navigate("/login"); // Navigate to login page
-      }, 2000);
-
-      //alert("Registration successful!");
-    } catch (error) {
-      console.error("Registration failed:", error);
-      setErrorMessage("Registration failed. Please try again.");
-      //alert("Registration failed.");
-    }
-  };
-
   return (
     <div>
       <div className="container">

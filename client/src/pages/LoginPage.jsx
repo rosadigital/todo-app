@@ -1,37 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext"; // Assuming you have an AuthContext for login
-import { login } from "../api/api"; // Assuming you have an API method for login
+import { useAuth } from "../contexts/AuthContext";
+import { login } from "../api/api"; //
 import LoginImg from "../assets/login.png";
 import Footer from "../components/Footer";
 
 const LoginPage = () => {
-  const [credentials, setCredentials] = useState({
-    email: "",
-    password: "",
-  });
-  const [error, setError] = useState("");
-  const { login: contextLogin } = useAuth();
-  const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    setCredentials({
-      ...credentials,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    console.log("clikced in hnadleSubmit ");
-    e.preventDefault();
-    try {
-      await contextLogin(credentials); // Call your login method from AuthContext
-      navigate("/todos"); // Redirect to TodoPage upon successful login
-    } catch (err) {
-      setError("Invalid credentials");
-    }
-  };
-
   return (
     <div>
       <div className="container">
