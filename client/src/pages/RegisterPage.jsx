@@ -3,8 +3,48 @@ import { useNavigate } from "react-router-dom";
 import RegisterImg from "../assets/signup.png";
 import Footer from "../components/Footer";
 import { register } from "../api/api";
+import { toast } from "react-toastify"; 
 
 const RegisterForm = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
+  });
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Check if passwords match
+    if (formData.password !== confirmPassword) {
+      toast.error("Passwords do not match!"); 
+      return;
+    }
+
+    try {
+      const response = await register(formData); 
+      toast.success(response.data.message);
+      navigate("/login"); 
+    } catch (error) {
+      toast.error(error.response?.data?.error || "An error occurred"); 
+    }
+  };
+
   return (
     <div>
       <div className="container">
@@ -21,7 +61,6 @@ const RegisterForm = () => {
               <hr className="mb-5" />
               <form className="registration-form" onSubmit={handleSubmit}>
                 <div className="mb-4">
-                  <label className="form-label">Name</label>
                   <input
                     name="name"
                     value={formData.name}
@@ -32,7 +71,6 @@ const RegisterForm = () => {
                   />
                 </div>
                 <div className="mb-4">
-                  <label className="form-label">Email</label>
                   <input
                     name="email"
                     type="email"
@@ -44,7 +82,6 @@ const RegisterForm = () => {
                   />
                 </div>
                 <div className="mb-4">
-                  <label className="form-label">Phone</label>
                   <input
                     name="phone"
                     value={formData.phone}
@@ -54,9 +91,8 @@ const RegisterForm = () => {
                     required
                   />
                 </div>
-                <hr></hr>
+                <hr />
                 <div className="mb-4">
-                  <label className="form-label">Password</label>
                   <input
                     name="password"
                     type="password"
@@ -68,7 +104,6 @@ const RegisterForm = () => {
                   />
                 </div>
                 <div className="mb-4">
-                  <label className="form-label">Confirm Password</label>
                   <input
                     type="password"
                     value={confirmPassword}
@@ -80,18 +115,11 @@ const RegisterForm = () => {
                 </div>
 
                 <div className="mb-4">
-                  <button
-                    className="btn btn-lg btn-dark pr-5 pl-5"
-                    type="submit"
-                  >
+                  <button className="btn btn-lg btn-dark pr-5 pl-5" type="submit">
                     Register
                   </button>
                 </div>
               </form>
-              {successMessage && (
-                <p className="success-message">{successMessage}</p>
-              )}
-              {errorMessage && <p className="error-message">{errorMessage}</p>}
               Already registered? <a href="/login">Click here</a> to login.
             </div>
           </div>
@@ -106,3 +134,5 @@ const RegisterForm = () => {
 };
 
 export default RegisterForm;
+
+
