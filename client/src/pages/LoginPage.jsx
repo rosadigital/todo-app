@@ -6,6 +6,32 @@ import LoginImg from "../assets/login.png";
 import Footer from "../components/Footer";
 
 const LoginPage = () => {
+  const [credentials, setCredentials] = useState({
+    email: "",
+    password: "",
+  });
+  const [error, setError] = useState("");
+  const { login: contextLogin } = useAuth();
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setCredentials({
+      ...credentials,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    console.log("clikced in hnadleSubmit ");
+    e.preventDefault();
+    try {
+      await contextLogin(credentials); //
+      navigate("/todos"); //
+    } catch (err) {
+      setError("Invalid credentials");
+    }
+  };
+
   return (
     <div>
       <div className="container">

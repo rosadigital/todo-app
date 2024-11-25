@@ -29,7 +29,10 @@ const Footer = () => {
                 </li>
                 <li>
                   <i className="fa fa-github pr-2"></i>{" "}
-                  <a href="https://github.com/kazisrepo" target="_blank">
+                  <a
+                    href="https://github.com/rosadigital/todo-app"
+                    target="_blank"
+                  >
                     GitHub
                   </a>
                 </li>
