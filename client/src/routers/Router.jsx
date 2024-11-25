@@ -3,9 +3,8 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
 } from "react-router-dom";
-import { AuthProvider, useAuth } from "../contexts/AuthContext";
+import { AuthProvider } from "../contexts/AuthContext";
 import LoginPage from "../pages/LoginPage";
 import TodoPage from "../pages/TodoPage";
 import HomePage from "../pages/HomePage";
@@ -18,16 +17,15 @@ import Layout from "../components/Layout";
 
 const AppRoutes = () => {
   return (
-    <AuthProvider>
-      <Layout></Layout>
-      <Router>
+    <Router>
+      <AuthProvider>
+        <Layout />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/projects" element={<ProjectPage />} />
           <Route path="/services" element={<ServicePage />} />
-
           <Route path="/login" element={<LoginPage />} />
           <Route
             path="/todos"
@@ -38,8 +36,8 @@ const AppRoutes = () => {
             }
           />
         </Routes>
-      </Router>
-    </AuthProvider>
+      </AuthProvider>
+    </Router>
   );
 };
 

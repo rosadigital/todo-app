@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import RegisterImg from "../assets/signup.png";
 import Footer from "../components/Footer";
 import { register } from "../api/api";
+import { toast } from "react-toastify";
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -68,7 +69,6 @@ const RegisterForm = () => {
               <hr className="mb-5" />
               <form className="registration-form" onSubmit={handleSubmit}>
                 <div className="mb-4">
-                  <label className="form-label">Name</label>
                   <input
                     name="name"
                     value={formData.name}
@@ -79,7 +79,6 @@ const RegisterForm = () => {
                   />
                 </div>
                 <div className="mb-4">
-                  <label className="form-label">Email</label>
                   <input
                     name="email"
                     type="email"
@@ -91,7 +90,6 @@ const RegisterForm = () => {
                   />
                 </div>
                 <div className="mb-4">
-                  <label className="form-label">Phone</label>
                   <input
                     name="phone"
                     value={formData.phone}
@@ -101,9 +99,8 @@ const RegisterForm = () => {
                     required
                   />
                 </div>
-                <hr></hr>
+                <hr />
                 <div className="mb-4">
-                  <label className="form-label">Password</label>
                   <input
                     name="password"
                     type="password"
@@ -115,7 +112,6 @@ const RegisterForm = () => {
                   />
                 </div>
                 <div className="mb-4">
-                  <label className="form-label">Confirm Password</label>
                   <input
                     type="password"
                     value={confirmPassword}
@@ -135,10 +131,6 @@ const RegisterForm = () => {
                   </button>
                 </div>
               </form>
-              {successMessage && (
-                <p className="success-message">{successMessage}</p>
-              )}
-              {errorMessage && <p className="error-message">{errorMessage}</p>}
               Already registered? <a href="/login">Click here</a> to login.
             </div>
           </div>
