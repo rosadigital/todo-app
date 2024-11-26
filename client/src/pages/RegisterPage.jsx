@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import { register } from "../api/api";
 import { toast } from "react-toastify";
 
-const RegisterForm = () => {
+const RegisterPage = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -131,6 +131,10 @@ const RegisterForm = () => {
                   </button>
                 </div>
               </form>
+              {successMessage && (
+                <p className="success-message">{successMessage}</p>
+              )}
+              {errorMessage && <p className="error-message">{errorMessage}</p>}
               Already registered? <a href="/login">Click here</a> to login.
             </div>
           </div>
@@ -144,4 +148,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export default RegisterPage;
