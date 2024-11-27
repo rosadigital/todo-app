@@ -18,10 +18,21 @@ const PORT = process.env.PORT || 3000;
 
 connectDB();
 
+const allowedOrigins = [
+  "https://todo-app-client-mqsb.onrender.com", // live env
+  "http://localhost:5173", // local env
+];
+
 // Use CORS to allow requests from specific origins
 app.use(
   cors({
-    origin: "http://localhost:5173", // allow your frontend's origin
+    origin: function (origin, callback) {
+      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed in CORS"));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
